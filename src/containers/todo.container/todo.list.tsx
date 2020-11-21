@@ -1,22 +1,36 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
+import { actions, selectTodoList, ITodo } from "./feature";
 import { RootState } from "common/store";
-import { selectTodoList, ITodo } from "./feature";
+import { Input } from "components";
 
 function TodoList() {
   const todoLists = useSelector<RootState, ITodo[]>((state) =>
     selectTodoList(state.todos)
   );
 
+  const dispatch = useDispatch();
+
+  const handleCheckBox = (item: ITodo) => {
+    dispatch(actions.toggleTodo(item));
+  };
+
   return (
-    <ul>
+    <>
       {todoLists.map((item: ITodo) => (
-        <li key={item.id}>
-          <span>{item.text}</span>
-        </li>
+        <div key={item.id}>
+          <span>
+            <Input
+              type="checkbox"
+              checked={item.completed}
+              onChange={handleCheckBox.bind({}, item)}
+            />
+            {item.text}
+          </span>
+        </div>
       ))}
-    </ul>
+    </>
   );
 }
 

@@ -17,9 +17,11 @@ import ITodo, { TodoList } from "./type";
  */
 const actionPrefix = "todos";
 const addTodo = createAction<object>(`${actionPrefix}/ADD`);
+const toggleTodo = createAction<object>(`${actionPrefix}/TOGGLE`);
 
 export const actions = {
   addTodo,
+  toggleTodo,
 };
 
 /**
@@ -45,6 +47,14 @@ const reducers = {
     };
 
     list.push(newTodo);
+  },
+
+  TOGGLE: (
+    { list }: TodoList,
+    { payload: { id, completed } }: PayloadAction<ITodo>
+  ) => {
+    const targetIdx = list.findIndex((item: ITodo) => item.id === id);
+    list[targetIdx].completed = !completed;
   },
 };
 

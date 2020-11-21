@@ -2,19 +2,19 @@ import React, { useState, ChangeEvent } from "react";
 import { useDispatch } from "react-redux";
 
 import { actions } from "./feature";
-import { Button } from "components";
+import { Button, Input } from "components";
 
 function AddTodo() {
-  const dispatch = useDispatch();
   const [iptTxt, setIptTxt] = useState("");
 
   const handleText = (e: ChangeEvent<HTMLInputElement>) => {
     setIptTxt(e.target.value);
   };
 
+  const dispatch = useDispatch();
+
   const handleClick = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    console.log("input", iptTxt);
 
     iptTxt &&
       dispatch(
@@ -29,7 +29,7 @@ function AddTodo() {
 
   return (
     <>
-      <input
+      <Input
         type="text"
         onChange={handleText}
         value={iptTxt}

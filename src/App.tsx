@@ -1,11 +1,13 @@
 import React from "react";
 
-import { TodoContainer } from "containers";
+import { TodoView } from "containers";
 
 function App() {
   return (
     <div className="App">
-      <TodoContainer />
+      <section>
+        <TodoView />
+      </section>
     </div>
   );
 }

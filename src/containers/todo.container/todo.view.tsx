@@ -1,6 +1,7 @@
 import React from "react";
 
 import AddTodo from "./todo.add";
+import FilterTodo from "./todo.filter";
 import TodoList from "./todo.list";
 
 function TodoView() {
@@ -8,6 +9,7 @@ function TodoView() {
     <>
       <AddTodo />
       <TodoList />
+      <FilterTodo />
     </>
   );
 }

@@ -5,6 +5,9 @@
 /* common */
 @import "./abstract/_common.scss";
 
+/* components */
+@import "../components/button/button", "../components/input/input";
+
 /* containers */
 @import "../containers/todo.container/_todo.scss";
 

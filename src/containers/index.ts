@@ -1,1 +1,1 @@
-export { default as TodoContainer } from "./todo.container/todo.container";
+export { default as TodoView } from "./todo.container/todo.view";
