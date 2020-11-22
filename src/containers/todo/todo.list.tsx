@@ -1,15 +1,14 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
-import { actions, selectTodoList, ITodo } from "./feature";
-import { RootState } from "common/store";
+import { actions, ITodo } from "./feature";
 import { Input } from "components";
 
-function TodoList() {
-  const todoLists = useSelector<RootState, ITodo[]>((state) =>
-    selectTodoList(state.todos)
-  );
+interface Props {
+  todos: ITodo[];
+}
 
+function TodoList({ todos }: Props) {
   const dispatch = useDispatch();
 
   const handleCheckBox = (item: ITodo) => {
@@ -18,7 +17,7 @@ function TodoList() {
 
   return (
     <>
-      {todoLists.map((item: ITodo) => (
+      {todos.map((item: ITodo) => (
         <div key={item.id}>
           <span>
             <Input
