@@ -16,13 +16,13 @@ import ITodo, { TodoList } from "./type";
  * https://redux-toolkit.js.org/api/createAction
  */
 const actionPrefix = "todos";
-const addTodo = createAction<object>(`${actionPrefix}/ADD`);
-const toggleTodo = createAction<object>(`${actionPrefix}/TOGGLE`);
+// const addTodo = createAction<object>(`${actionPrefix}/ADD`);
+// const toggleTodo = createAction<object>(`${actionPrefix}/TOGGLE`);
 
-export const actions = {
-  addTodo,
-  toggleTodo,
-};
+// export const actions = {
+//   addTodo,
+//   toggleTodo,
+// };
 
 /**
  * @param createSlice :

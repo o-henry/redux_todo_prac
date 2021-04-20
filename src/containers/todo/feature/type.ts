@@ -7,5 +7,3 @@ export default interface ITodo {
 export interface TodoList {
   list: ITodo[];
 }
-
-export type FilterType = "SHOW_ALL" | "SHOW_COMPLETED" | "SHOW_ACTIVE";

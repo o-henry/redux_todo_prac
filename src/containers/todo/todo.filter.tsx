@@ -11,10 +11,13 @@ function FilterTodo() {
 
   const todos = useSelector<RootState, ITodo[]>((state) => {
     const lists = state.todos.list;
-    if (isComplete) {
-      return lists.filter((ele) => ele.completed);
+
+    switch (isComplete) {
+      case true:
+        return lists.filter((ele) => ele.completed);
+      case false:
+        return selectTodoList(state.todos);
     }
-    return selectTodoList(state.todos);
   });
 
   return (

@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 
-import { actions, ITodo } from "./feature";
+import { todoSlice, ITodo } from "./feature";
 import { Input } from "components";
 
 interface Props {
@@ -12,7 +12,7 @@ function TodoList({ todos }: Props) {
   const dispatch = useDispatch();
 
   const handleCheckBox = (item: ITodo) => {
-    dispatch(actions.toggleTodo(item));
+    dispatch(todoSlice.actions.TOGGLE(item));
   };
 
   return (

@@ -1,7 +1,8 @@
+//@ts-nocheck
 import React, { useState, ChangeEvent } from "react";
 import { useDispatch } from "react-redux";
 
-import { actions } from "./feature";
+import { todoSlice } from "./feature";
 import { Button, Input } from "components";
 
 function AddTodo() {
@@ -18,7 +19,7 @@ function AddTodo() {
 
     iptTxt &&
       dispatch(
-        actions.addTodo({
+        todoSlice.actions.ADD({
           text: iptTxt,
           completed: false,
         })
@@ -40,4 +41,4 @@ function AddTodo() {
   );
 }
 
-export default AddTodo;
+export default React.memo(AddTodo);
